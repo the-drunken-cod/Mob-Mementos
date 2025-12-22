@@ -17,10 +17,6 @@ tasks.named('wrapper', Wrapper).configure {
 version = mod_version
 group = mod_group_id
 
-repositories {
-    // Add here additional repositories if required by some of the dependencies below.
-}
-
 base {
     archivesName = mod_id
 }
@@ -111,7 +107,17 @@ configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
+
+repositories {
+    maven { url 'https://maven.wispforest.io/releases' }
+    maven { url 'https://maven.su5ed.dev/releases' }
+    maven { url 'https://maven.fabricmc.net' }
+}
+
 dependencies {
+    // Accessories
+    implementation("io.wispforest:accessories-neoforge:${project.accessories_version}")
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
@@ -148,7 +154,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_authors            : mod_authors,
-            mod_description        : mod_description
+            mod_description        : mod_description,
+            accessories_version    : accessories_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties

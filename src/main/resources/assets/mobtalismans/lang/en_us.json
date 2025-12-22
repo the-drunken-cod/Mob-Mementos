@@ -1,13 +1,11 @@
 {
-  "itemGroup.mobtalismans": "Example Mod Tab",
-  "block.mobtalismans.example_block": "Example Block",
-  "item.mobtalismans.example_item": "Example Item",
-
-  "mobtalismans.configuration.title": "MobTalismans Configs",
-  "mobtalismans.configuration.section.mobtalismans.common.toml": "MobTalismans Configs",
-  "mobtalismans.configuration.section.mobtalismans.common.toml.title": "MobTalismans Configs",
-  "mobtalismans.configuration.items": "Item List",
-  "mobtalismans.configuration.logDirtBlock": "Log Dirt Block",
-  "mobtalismans.configuration.magicNumberIntroduction": "Magic Number Text",
-  "mobtalismans.configuration.magicNumber": "Magic Number"
+  "itemGroup.mobtalismans": "Mob Talismans",
+  "item.mobtalismans.conduit_talisman": "Conduit Talisman",
+  "item.mobtalismans.conduit_talisman.tooltip": "Hurts hostile aquatic mobs nearby",
+  "mobtalismans.configuration.title": "Mob Talismans Configs",
+  "mobtalismans.configuration.section.mobtalismans.startup.toml": "Mob Talismans Configs",
+  "mobtalismans.configuration.section.mobtalismans.startup.toml.title": "Mob Talismans Configs",
+  "mobtalismans.configuration.conduit_talisman_radius": "Conduit Talisman Radius",
+  "mobtalismans.configuration.conduit_talisman_damage": "Conduit Talisman Damage",
+  "mobtalismans.configuration.conduit_talisman_tick_interval": "Conduit Talisman Tick Interval"
 }
