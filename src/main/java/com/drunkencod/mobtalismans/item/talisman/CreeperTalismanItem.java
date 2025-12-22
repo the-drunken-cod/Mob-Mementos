@@ -1,7 +1,6 @@
 package com.drunkencod.mobtalismans.item.talisman;
 
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
-import com.drunkencod.mobtalismans.item.AbstractTalismanItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import java.util.List;
 import net.minecraft.network.chat.Component;
@@ -49,6 +48,9 @@ public class CreeperTalismanItem extends AbstractTalismanItem {
 
                 // set NBT `mobtalismans:prevent_explosion_block_damage` to true
                 creeper.getPersistentData().putBoolean(PREVENT_EXPLOSION_DAMAGE_NBT_KEY, true);
+
+                // trigger advancement
+                triggerTalismanAdvancement(reference, stack);
 
                 // damage talisman
                 damageTalisman(stack);

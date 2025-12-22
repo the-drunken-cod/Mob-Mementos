@@ -27,6 +27,7 @@ public class ModCreativeTabs {
 
                         output.accept(ModItems.CONDUIT_TALISMAN.get());
                         output.accept(ModItems.CREEPER_TALISMAN.get());
+                        output.accept(ModItems.PHANTOM_TALISMAN.get());
                         output.accept(ModItems.SILVERFISH_TALISMAN.get());
                     }).build());
 }

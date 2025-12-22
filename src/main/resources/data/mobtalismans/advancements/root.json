@@ -1,0 +1,29 @@
+{
+    "display": {
+        "icon": {
+            "id": "mobtalismans:conduit_talisman",
+            "count": 1
+        },
+        "background": "minecraft:textures/block/chiseled_tuff_bricks.png",
+        "title": {
+            "translate": "advancements.mobtalismans.root.title",
+            "fallback": "Mob Talismans"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.root.description",
+            "fallback": "Empowering artifacts await their discovery."
+        },
+        "announce_to_chat": false,
+        "show_toast": false
+    },
+    "criteria": {
+        "cond": {
+            "trigger": "minecraft:tick"
+        }
+    },
+    "requirements": [
+        [
+            "cond"
+        ]
+    ]
+}

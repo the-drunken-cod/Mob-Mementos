@@ -2,7 +2,6 @@ package com.drunkencod.mobtalismans.item.talisman;
 
 import com.drunkencod.mobtalismans.block.ModBlockTags;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
-import com.drunkencod.mobtalismans.item.AbstractTalismanItem;
 import com.drunkencod.mobtalismans.MobTalismans;
 import io.wispforest.accessories.api.slot.SlotReference;
 import java.util.HashMap;
@@ -61,6 +60,9 @@ public class SilverfishTalismanItem extends AbstractTalismanItem {
 
                         // uninfest block
                         level.setBlockAndUpdate(blockPos, getUninfestedState(level, blockPos));
+
+                        // trigger advancement
+                        triggerTalismanAdvancement(reference, stack);
 
                         // damage talisman
                         damageTalisman(stack);

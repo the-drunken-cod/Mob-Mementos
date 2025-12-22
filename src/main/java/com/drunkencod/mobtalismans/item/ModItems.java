@@ -34,6 +34,9 @@ public class ModItems {
     public static final DeferredItem<ConduitTalismanItem> CONDUIT_TALISMAN = ITEMS.register(
             ConduitTalismanItem.REGISTRY_NAME, ConduitTalismanItem::new);
 
+    public static final DeferredItem<PhantomTalismanItem> PHANTOM_TALISMAN = ITEMS.register(
+            PhantomTalismanItem.REGISTRY_NAME, PhantomTalismanItem::new);
+
     public static final DeferredItem<SilverfishTalismanItem> SILVERFISH_TALISMAN = ITEMS.register(
             SilverfishTalismanItem.REGISTRY_NAME, SilverfishTalismanItem::new);
 }

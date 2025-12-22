@@ -82,6 +82,25 @@ public class ModStartupConfig {
         }
     }
 
+    // #region Phantom Talisman:
+
+    public static class PhantomTalisman {
+        public final ModConfigSpec.IntValue DURABILITY;
+
+        PhantomTalisman(ModConfigSpec.Builder builder) {
+            builder.push("phantom_talisman")
+                    .translation("config.mobtalismans.phantom_talisman");
+
+            DURABILITY = builder
+                    .translation("config.mobtalismans.phantom_talisman.durability")
+                    .comment("The durability of the Phantom Talisman.")
+                    .translation("config.mobtalismans.phantom_talisman.durability.comment")
+                    .defineInRange("phantom_talisman.durability", 768, 0, Integer.MAX_VALUE);
+
+            builder.pop();
+        }
+    }
+
     // #region Silverfish Talisman:
 
     public static class SilverfishTalisman {
@@ -122,6 +141,7 @@ public class ModStartupConfig {
 
     public static final ConduitTalisman CONDUIT_TALISMAN;
     public static final CreeperTalisman CREEPER_TALISMAN;
+    public static final PhantomTalisman PHANTOM_TALISMAN;
     public static final SilverfishTalisman SILVERFISH_TALISMAN;
 
     static {
@@ -129,6 +149,7 @@ public class ModStartupConfig {
 
         CONDUIT_TALISMAN = new ConduitTalisman(builder);
         CREEPER_TALISMAN = new CreeperTalisman(builder);
+        PHANTOM_TALISMAN = new PhantomTalisman(builder);
         SILVERFISH_TALISMAN = new SilverfishTalisman(builder);
 
         SPEC = builder.build();

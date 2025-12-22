@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "SWS",
+        "PVP",
+        "PPP"
+    ],
+    "key": {
+        "S": {
+            "tag": "c:strings"
+        },
+        "W": {
+            "tag": "minecraft:wool"
+        },
+        "P": {
+            "item": "minecraft:phantom_membrane"
+        },
+        "V": {
+            "item": "mobtalismans:crude_talisman_vessel"
+        }
+    },
+    "result": {
+        "id": "mobtalismans:phantom_talisman"
+    }
+}

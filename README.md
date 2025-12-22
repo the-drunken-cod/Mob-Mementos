@@ -12,7 +12,7 @@ Adds QoL accessories (curios) that provide utilities against specific mobs.
         - [x] [P1] **Creeper Belt**: prevents nearby creepers from doing block damage
         - [ ] [P1] **Enderman Anklet**: prohibits nearby endermen from picking up blocks
         - [x] [P1] **Silverfish Ring**: converts infested blocks nearby to their non-infested variant
-        - [ ] [P2] **Phantom Cloak**: deters phantoms, just like cats do
+        - [x] [P1] **Phantom Cloak**: deters phantoms, just like cats do
         - [ ] [P2] **Vex Ring**: makes vex despawn faster (or smaller radius around their summoning evoker)
         - [ ] [P2] **Wandering Trader Charm**: prevents wandering traders from spawning in a big radius
 - [ ] [P3] Conjuring Catalysts:

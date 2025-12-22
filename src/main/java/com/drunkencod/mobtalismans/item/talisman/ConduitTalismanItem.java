@@ -2,7 +2,6 @@ package com.drunkencod.mobtalismans.item.talisman;
 
 import com.drunkencod.mobtalismans.MobTalismans;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
-import com.drunkencod.mobtalismans.item.AbstractTalismanItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import java.util.List;
 import net.minecraft.core.particles.ParticleTypes;
@@ -77,6 +76,9 @@ public class ConduitTalismanItem extends AbstractTalismanItem {
                     // play conduit attack sound
                     level.playLocalSound(mob.blockPosition(), SoundEvents.CONDUIT_ATTACK_TARGET, SoundSource.HOSTILE,
                             1.0F, 1.0F, false);
+
+                    // trigger advancement
+                    triggerTalismanAdvancement(reference, stack);
 
                     // damage talisman
                     damageTalisman(stack);

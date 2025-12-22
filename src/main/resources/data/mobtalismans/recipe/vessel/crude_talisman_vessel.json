@@ -3,15 +3,15 @@
     "category": "building",
     "pattern": [
         " A ",
-        " P ",
+        " L ",
         "A A"
     ],
     "key": {
         "A": {
             "tag": "c:gems/amethyst"
         },
-        "P": {
-            "tag": "c:gems/prismarine"
+        "L": {
+            "item": "minecraft:sea_lantern"
         }
     },
     "result": {

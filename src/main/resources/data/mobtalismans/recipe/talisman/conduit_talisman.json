@@ -2,11 +2,14 @@
     "type": "minecraft:crafting_shaped",
     "category": "building",
     "pattern": [
-        "GGG",
-        "GRG",
+        "NGN",
+        "NRN",
         " C "
     ],
     "key": {
+        "N": {
+            "tag": "c:nuggets/gold"
+        },
         "G": {
             "tag": "c:ingots/gold"
         },

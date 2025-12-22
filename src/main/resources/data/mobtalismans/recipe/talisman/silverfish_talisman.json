@@ -4,7 +4,7 @@
     "pattern": [
         " S ",
         "ICI",
-        "III"
+        "NIN"
     ],
     "key": {
         "S": {
@@ -15,6 +15,9 @@
         },
         "C": {
             "item": "mobtalismans:crude_talisman_vessel"
+        },
+        "N": {
+            "tag": "c:nuggets/iron"
         }
     },
     "result": {
