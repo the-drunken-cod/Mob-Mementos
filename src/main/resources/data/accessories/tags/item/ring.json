@@ -2,6 +2,9 @@
     "replace": false,
     "values": [
         "mobtalismans:silverfish_talisman",
-        "mobtalismans:vex_talisman"
+        {
+            "id": "mobtalismans:vex_talisman",
+            "required": false
+        }
     ]
 }

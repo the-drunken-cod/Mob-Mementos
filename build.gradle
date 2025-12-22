@@ -33,8 +33,8 @@ neoForge {
         minecraftVersion = project.parchment_minecraft_version
     }
 
-    // This line is optional. Access Transformers are automatically detected
-    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformers = project.files('src/main/templates/META-INF/accesstransformer.cfg')
+    validateAccessTransformers = true
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -109,14 +109,19 @@ configurations {
 
 
 repositories {
-    maven { url 'https://maven.wispforest.io/releases' }
-    maven { url 'https://maven.su5ed.dev/releases' }
-    maven { url 'https://maven.fabricmc.net' }
+    maven { url "https://maven.wispforest.io/releases" }
+    maven { url "https://maven.su5ed.dev/releases" }
+    maven { url "https://maven.fabricmc.net" }
+    maven { url "https://maven.terraformersmc.com/" }
 }
 
 dependencies {
     // Accessories
     implementation("io.wispforest:accessories-neoforge:${project.accessories_version}")
+
+    // EMI
+    compileOnly("dev.emi:emi-neoforge:${rootProject.emi_version}:api")
+	runtimeOnly("dev.emi:emi-neoforge:${rootProject.emi_version}")
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -171,7 +176,7 @@ neoForge.ideSyncTask generateModMetadata
 // Example configuration to allow publishing using the maven-publish plugin
 publishing {
     publications {
-        register('mavenJava', MavenPublication) {
+        register("mavenJava", MavenPublication) {
             from components.java
         }
     }

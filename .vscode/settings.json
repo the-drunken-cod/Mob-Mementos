@@ -1,0 +1,41 @@
+{
+    "editor.tabSize": 4,
+    "git.branchPrefix": "feat/",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+
+    // requires extension "fabiospampinato.vscode-highlight"
+    "highlight.regexFlags": "g",
+    "highlight.regexes": {
+        // TODO: or TODO or TODO(xy): but not todo or todo:
+        "(TODO(\\((\\s|\\d|\\w|[,.-_+*&])+\\))?:?)": {
+            "backgroundColor": "#ed0",
+            "color": "black",
+            "overviewRulerColor": "#ed0",
+        },
+        //#region foo: (@bar):
+        "((//\\s*|/\\*\\s*)?#region ([^\\S\\r\\n]*[<>\\[\\]\\(\\)\\w,.:;\\|\\-_&@$%§?!~+#*'\"/\\\\]+)*)": {
+            "backgroundColor": "#35b5d0",
+            "color": "#000",
+            "overviewRulerColor": "#35b5d0",
+        },
+        // #DEBUG or DEBUG or #DBG or #DBG#
+        "(#?(DEBUG|DBG)#?)": {
+            "backgroundColor": "#ff0",
+            "color": "blue",
+            "overviewRulerColor": "#ff0",
+        },
+        // IMPORTANT:
+        "(IMPORTANT:)": {
+            "backgroundColor": "#f35",
+            "color": "#000",
+            "overviewRulerColor": "#f35",
+        },
+        // FIXME:
+        "(FIXME:)": {
+            "backgroundColor": "#f42",
+            "color": "#000",
+            "overviewRulerColor": "#f42",
+        },
+    },
+}

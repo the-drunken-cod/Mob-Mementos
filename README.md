@@ -1,5 +1,5 @@
 # Mob Talismans
-A NeoForged mod that adds QoL accessories (curios) that provide utilities against specific mobs.
+Adds QoL accessories (curios) that provide utilities against specific mobs.
 
 <br>
 
@@ -26,9 +26,9 @@ A NeoForged mod that adds QoL accessories (curios) that provide utilities agains
 <br>
 
 ## Modpack Policy
-You are free to use Mycomancy in any modpacks, public or private :)  
+You are free to use Mob Talismans in any modpacks, public or private :)  
 Just make sure you abide by [the Minecraft EULA](https://minecraft.net/en-us/eula), common sense, and [our license.](./LICENSE.txt)  
-Please also [report any issues or suggestions](https://github.com/the-drunken-cod/mycomancy/issues), so we can improve the mod for you and other players and have better compatibility with other mods.
+Please also [report any issues or suggestions](https://github.com/the-drunken-cod/MobTalismans/issues), so we can improve the mod for you and other players and have better compatibility with other mods.
 
 <br>
 

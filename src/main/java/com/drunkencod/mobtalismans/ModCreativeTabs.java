@@ -1,6 +1,5 @@
-package com.drunkencod.mobtalismans.gui;
+package com.drunkencod.mobtalismans;
 
-import com.drunkencod.mobtalismans.MobTalismans;
 import com.drunkencod.mobtalismans.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -19,6 +18,13 @@ public class ModCreativeTabs {
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> ModItems.CONDUIT_TALISMAN.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
+                        output.accept(ModItems.SILVERFISH_SCALE.get());
+
+                        output.accept(ModItems.CRUDE_TALISMAN_VESSEL.get());
+                        output.accept(ModItems.REFINED_TALISMAN_VESSEL.get());
+                        output.accept(ModItems.SUPREME_TALISMAN_VESSEL.get());
+
                         output.accept(ModItems.CONDUIT_TALISMAN.get());
+                        output.accept(ModItems.SILVERFISH_TALISMAN.get());
                     }).build());
 }

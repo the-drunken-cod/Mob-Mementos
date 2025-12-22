@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "GGG",
+        "GCG",
+        " R "
+    ],
+    "key": {
+        "G": {
+            "tag": "c:nuggets/gold"
+        },
+        "C": {
+            "item": "minecraft:conduit"
+        },
+        "R": {
+            "item": "mobtalismans:refined_talisman_vessel"
+        }
+    },
+    "result": {
+        "id": "mobtalismans:conduit_talisman"
+    }
+}

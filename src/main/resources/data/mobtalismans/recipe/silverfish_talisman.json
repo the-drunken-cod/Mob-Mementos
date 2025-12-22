@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "ISI",
+        "ICI",
+        "III"
+    ],
+    "key": {
+        "I": {
+            "tag": "c:nuggets/iron"
+        },
+        "S": {
+            "item": "mobtalismans:silverfish_scale"
+        },
+        "C": {
+            "item": "mobtalismans:crude_talisman_vessel"
+        }
+    },
+    "result": {
+        "id": "mobtalismans:silverfish_talisman"
+    }
+}

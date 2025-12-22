@@ -2,8 +2,7 @@ package com.drunkencod.mobtalismans;
 
 import org.slf4j.Logger;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
-import com.drunkencod.mobtalismans.gui.ModCreativeTabs;
-import com.drunkencod.mobtalismans.item.ModItems;
+import com.drunkencod.mobtalismans.item.*;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -23,7 +22,6 @@ public class MobTalismans {
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
-        // NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.STARTUP, ModStartupConfig.SPEC);
     }
 
