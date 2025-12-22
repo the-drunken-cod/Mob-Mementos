@@ -12,7 +12,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
@@ -26,9 +25,7 @@ public class SilverfishTalismanItem extends AbstractTalismanItem {
     private HashMap<Block, Block> uninfestedCache = new HashMap<>();
 
     public SilverfishTalismanItem() {
-        super(new Item.Properties()
-                .stacksTo(1)
-                .durability(ModStartupConfig.SILVERFISH_TALISMAN.DURABILITY.get()));
+        super(getDefaultProps(ModStartupConfig.SILVERFISH_TALISMAN.DURABILITY.get()));
 
         InfestedBlock.BLOCK_BY_HOST_BLOCK.forEach((hostBlock, infestedBlock) -> {
             uninfestedCache.put(infestedBlock, hostBlock);

@@ -2,16 +2,16 @@
     "type": "minecraft:crafting_shaped",
     "category": "building",
     "pattern": [
-        "ISI",
+        " S ",
         "ICI",
         "III"
     ],
     "key": {
-        "I": {
-            "tag": "c:nuggets/iron"
-        },
         "S": {
             "item": "mobtalismans:silverfish_scale"
+        },
+        "I": {
+            "tag": "c:ingots/iron"
         },
         "C": {
             "item": "mobtalismans:crude_talisman_vessel"

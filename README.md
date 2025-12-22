@@ -5,21 +5,21 @@ Adds QoL accessories (curios) that provide utilities against specific mobs.
 
 ## Idea:
 - [P1] Accessories that are somewhat expensive to make that make mobs less annoying or offer other utilities tied to mobs
-    - [P1] Durability that is slowly used up, only while activated
-    - [P1] Configurable whether they recharge or need to be repaired
+    - [x] [P1] Durability that is slowly used up, only while activated
+    - [ ] [P1] Configurable whether they recharge or need to be repaired
     - [P1] Talismans:
-        - [P1] **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
-        - [P1] **Creeper Belt**: prevents nearby creepers from doing block damage
-        - [P1] **Enderman Anklet**: prohibits nearby endermen from picking up blocks
-        - [P1] **Silverfish Ring**: converts infested blocks nearby to their non-infested variant
-        - [P2] **Phantom Cloak**: deters phantoms, just like cats do
-        - [P2] **Vex Ring**: makes vex despawn faster (or smaller radius around their summoning evoker)
-        - [P2] **Wandering Trader Charm**: prevents wandering traders from spawning in a big radius
-- [P3] Conjuring Catalysts:
+        - [x] [P1] **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
+        - [ ] [P1] **Creeper Belt**: prevents nearby creepers from doing block damage
+        - [ ] [P1] **Enderman Anklet**: prohibits nearby endermen from picking up blocks
+        - [x] [P1] **Silverfish Ring**: converts infested blocks nearby to their non-infested variant
+        - [ ] [P2] **Phantom Cloak**: deters phantoms, just like cats do
+        - [ ] [P2] **Vex Ring**: makes vex despawn faster (or smaller radius around their summoning evoker)
+        - [ ] [P2] **Wandering Trader Charm**: prevents wandering traders from spawning in a big radius
+- [ ] [P3] Conjuring Catalysts:
     - **Evoker**: used on beds & respawn anchors to make them a single-use fallback spawnpoint
         - Any other bed can be used as a temporary spawnpoint, but if they're broken, the player will respawn at their fallback bed/anchor
         - Chat message when the charmed bed/anchor is used or broken to inform the player
-- [P4] Pedestals that activate talismans without a player needing to wear them
+- [ ] [P4] Pedestals that activate talismans without a player needing to wear them
     - Configurable FE power draw or item consumption to keep them active
     - Configurable effect range multiplier
 

@@ -42,7 +42,7 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.conduit_talisman.durability")
                     .comment("The durability of the Conduit Talisman.")
                     .translation("config.mobtalismans.conduit_talisman.durability.comment")
-                    .defineInRange("conduit_talisman.durability", 64, 1, Integer.MAX_VALUE);
+                    .defineInRange("conduit_talisman.durability", 0, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -76,7 +76,7 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.silverfish_talisman.durability")
                     .comment("The durability of the Silverfish Talisman.")
                     .translation("config.mobtalismans.silverfish_talisman.durability.comment")
-                    .defineInRange("silverfish_talisman.durability", 256, 1, Integer.MAX_VALUE);
+                    .defineInRange("silverfish_talisman.durability", 0, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }

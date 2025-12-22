@@ -14,7 +14,6 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,9 +24,7 @@ public class ConduitTalismanItem extends AbstractTalismanItem {
     public static final String REGISTRY_NAME = "conduit_talisman";
 
     public ConduitTalismanItem() {
-        super(new Item.Properties()
-                .stacksTo(1)
-                .durability(ModStartupConfig.CONDUIT_TALISMAN.DURABILITY.get())
+        super(getDefaultProps(ModStartupConfig.CONDUIT_TALISMAN.DURABILITY.get())
                 .rarity(Rarity.UNCOMMON));
     }
 

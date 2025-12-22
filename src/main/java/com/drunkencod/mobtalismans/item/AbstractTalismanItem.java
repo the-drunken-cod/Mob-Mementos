@@ -21,4 +21,11 @@ public abstract class AbstractTalismanItem extends Item implements Accessory {
             TooltipFlag tooltipType) {
         tooltips.add(Component.literal("A mystical talisman imbued with ancient powers."));
     }
+
+    protected static Item.Properties getDefaultProps(int durability) {
+        Item.Properties props = new Item.Properties().stacksTo(1);
+        if (durability > 0)
+            props = props.durability(durability);
+        return props;
+    }
 }

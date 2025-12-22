@@ -3,18 +3,18 @@
     "category": "building",
     "pattern": [
         "GGG",
-        "GCG",
-        " R "
+        "GRG",
+        " C "
     ],
     "key": {
         "G": {
-            "tag": "c:nuggets/gold"
-        },
-        "C": {
-            "item": "minecraft:conduit"
+            "tag": "c:ingots/gold"
         },
         "R": {
             "item": "mobtalismans:refined_talisman_vessel"
+        },
+        "C": {
+            "item": "minecraft:conduit"
         }
     },
     "result": {
