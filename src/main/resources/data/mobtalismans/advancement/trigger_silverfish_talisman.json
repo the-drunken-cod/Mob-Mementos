@@ -1,0 +1,34 @@
+{
+    "parent": "mobtalismans:have_silverfish_scale",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:silverfish_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.silverfish_talisman.title",
+            "fallback": "Silverfish Talisman"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.silverfish_talisman.description",
+            "fallback": "Pesticide on a ring."
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:silverfish_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}

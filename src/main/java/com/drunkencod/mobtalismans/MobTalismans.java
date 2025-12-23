@@ -1,6 +1,8 @@
 package com.drunkencod.mobtalismans;
 
 import org.slf4j.Logger;
+
+import com.drunkencod.mobtalismans.advancement.ModCriteriaTriggers;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
 import com.drunkencod.mobtalismans.item.*;
 import com.mojang.logging.LogUtils;
@@ -21,6 +23,8 @@ public class MobTalismans {
 
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+
+        ModCriteriaTriggers.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.STARTUP, ModStartupConfig.SPEC);
     }

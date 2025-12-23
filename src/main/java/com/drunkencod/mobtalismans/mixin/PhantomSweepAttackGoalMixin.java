@@ -32,51 +32,56 @@ public class PhantomSweepAttackGoalMixin {
 
     @Inject(method = "canContinueToUse", at = @At("RETURN"), cancellable = true)
     private void mobtalismans$checkForTalisman(CallbackInfoReturnable<Boolean> cir) {
-        if (!cir.getReturnValue())
-            return;
+        try {
+            if (!cir.getReturnValue())
+                return;
 
-        Phantom phantom = this$0;
-        LivingEntity target = phantom.getTarget();
-        if (target == null)
-            return;
+            Phantom phantom = this$0;
+            LivingEntity target = phantom.getTarget();
+            if (target == null)
+                return;
 
-        // check periodically (every 20 ticks) like the cat check does
-        if (phantom.tickCount > mobtalismans$talismanSearchTick) {
-            mobtalismans$talismanSearchTick = phantom.tickCount + 20;
-            mobtalismans$isScaredOfTalisman = false;
+            // check periodically (every 20 ticks) like the cat check does
+            if (phantom.tickCount > mobtalismans$talismanSearchTick) {
+                mobtalismans$talismanSearchTick = phantom.tickCount + 20;
+                mobtalismans$isScaredOfTalisman = false;
 
-            // check if target is a player with a functional phantom talisman equipped
-            if (target instanceof Player player) {
-                var capability = AccessoriesCapability.get(player);
-                if (capability != null) {
-                    var equipped = capability.getEquipped(ModItems.PHANTOM_TALISMAN.get());
-                    for (var entry : equipped) {
-                        ItemStack stack = entry.stack();
-                        // check if talisman is not broken
-                        if (stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage()) {
-                            mobtalismans$isScaredOfTalisman = true;
+                // check if target is a player with a functional phantom talisman equipped
+                if (target instanceof Player player) {
+                    var capability = AccessoriesCapability.get(player);
+                    if (capability != null) {
+                        var equipped = capability.getEquipped(ModItems.PHANTOM_TALISMAN.get());
+                        for (var entry : equipped) {
+                            ItemStack stack = entry.stack();
+                            // check if talisman is not broken
+                            if (stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage()) {
+                                mobtalismans$isScaredOfTalisman = true;
 
-                            MobTalismans.LOGGER.debug(
-                                    "[Phantom Talisman]: Set {} to be scared of player {}",
-                                    phantom, player.getName().getString());
+                                MobTalismans.LOGGER.debug(
+                                        "[Phantom Talisman]: Set {} to be scared of player {}",
+                                        phantom, player.getName().getString());
 
-                            var level = phantom.level();
+                                var level = phantom.level();
 
-                            if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer)
-                                ModCriteriaTriggers.TALISMAN_TRIGGERED.trigger(serverPlayer, stack.copy(),
-                                        stack.copy());
+                                if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer)
+                                    ModCriteriaTriggers.TALISMAN_TRIGGERED.trigger(serverPlayer, stack.copy(),
+                                            stack.copy());
 
-                            // damage the talisman
-                            if (stack.getMaxDamage() > 0)
-                                stack.setDamageValue(stack.getDamageValue() + 1);
-                            break;
+                                // damage the talisman
+                                if (stack.getMaxDamage() > 0)
+                                    stack.setDamageValue(stack.getDamageValue() + 1);
+                                break;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        if (mobtalismans$isScaredOfTalisman)
-            cir.setReturnValue(false);
+            if (mobtalismans$isScaredOfTalisman)
+                cir.setReturnValue(false);
+        } catch (Exception e) {
+            MobTalismans.LOGGER.error("Error checking Phantom talisman effect:", e);
+            cir.setReturnValue(true);
+        }
     }
 }

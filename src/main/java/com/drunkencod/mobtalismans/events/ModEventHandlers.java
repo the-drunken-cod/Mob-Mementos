@@ -10,6 +10,7 @@ import net.neoforged.neoforge.event.level.ExplosionEvent;
 
 @EventBusSubscriber(modid = MobTalismans.MOD_ID)
 public class ModEventHandlers {
+    // #region creeper talisman - prevent creeper explosion block damage:
     @SubscribeEvent
     public static void onBeforeCreeperExplode(ExplosionEvent.Start event) {
         var explosion = event.getExplosion();
@@ -24,7 +25,7 @@ public class ModEventHandlers {
                         creeper.getX(),
                         creeper.getY(),
                         creeper.getZ(),
-                        (float) 2.5f,
+                        (creeper.isPowered() ? 5f : 2.5f),
                         false,
                         Explosion.BlockInteraction.KEEP);
 
@@ -37,4 +38,6 @@ public class ModEventHandlers {
             }
         }
     }
+
+    // #region enderman talisman - enderman griefing prevention:
 }

@@ -2,22 +2,19 @@
     "type": "minecraft:crafting_shaped",
     "category": "building",
     "pattern": [
-        "NGN",
+        " L ",
         "LVL",
-        "NCN"
+        "GCG"
     ],
     "key": {
-        "N": {
-            "tag": "c:nuggets/gold"
-        },
-        "G": {
-            "tag": "c:ingots/gold"
-        },
         "L": {
             "tag": "c:leathers"
         },
         "V": {
             "item": "mobtalismans:refined_talisman_vessel"
+        },
+        "G": {
+            "tag": "c:ingots/gold"
         },
         "C": {
             "item": "minecraft:creeper_head"

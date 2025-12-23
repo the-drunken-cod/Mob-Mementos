@@ -42,7 +42,7 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.conduit_talisman.durability")
                     .comment("The durability of the Conduit Talisman.")
                     .translation("config.mobtalismans.conduit_talisman.durability.comment")
-                    .defineInRange("conduit_talisman.durability", 1024, 0, Integer.MAX_VALUE);
+                    .defineInRange("conduit_talisman.durability", 2031, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -76,7 +76,41 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.creeper_talisman.durability")
                     .comment("The durability of the Creeper Talisman.")
                     .translation("config.mobtalismans.creeper_talisman.durability.comment")
-                    .defineInRange("creeper_talisman.durability", 512, 0, Integer.MAX_VALUE);
+                    .defineInRange("creeper_talisman.durability", 2031, 0, Integer.MAX_VALUE);
+
+            builder.pop();
+        }
+    }
+
+    // #region Enderman Talisman:
+
+    public static class EndermanTalisman {
+        public final ModConfigSpec.DoubleValue RADIUS;
+        public final ModConfigSpec.IntValue CHECK_INTERVAL_TICKS;
+        public final ModConfigSpec.IntValue DURABILITY;
+
+        EndermanTalisman(ModConfigSpec.Builder builder) {
+            builder.push("enderman_talisman")
+                    .translation("config.mobtalismans.enderman_talisman");
+
+            RADIUS = builder
+                    .translation("config.mobtalismans.enderman_talisman.radius")
+                    .comment("The radius in blocks around the player in which endermen will be detected.")
+                    .translation("config.mobtalismans.enderman_talisman.radius.comment")
+                    .defineInRange("enderman_talisman.radius", 64.0, 1.0, 128.0);
+
+            CHECK_INTERVAL_TICKS = builder
+                    .translation("config.mobtalismans.enderman_talisman.check_interval_ticks")
+                    .comment("The interval in ticks at which nearby endermen are checked.")
+                    .translation("config.mobtalismans.enderman_talisman.check_interval_ticks.comment")
+                    .defineInRange("enderman_talisman.check_interval_ticks", 100, 5,
+                            Integer.MAX_VALUE);
+
+            DURABILITY = builder
+                    .translation("config.mobtalismans.enderman_talisman.durability")
+                    .comment("The durability of the Enderman Talisman.")
+                    .translation("config.mobtalismans.enderman_talisman.durability.comment")
+                    .defineInRange("enderman_talisman.durability", 1024, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -95,7 +129,7 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.phantom_talisman.durability")
                     .comment("The durability of the Phantom Talisman.")
                     .translation("config.mobtalismans.phantom_talisman.durability.comment")
-                    .defineInRange("phantom_talisman.durability", 768, 0, Integer.MAX_VALUE);
+                    .defineInRange("phantom_talisman.durability", 1024, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -141,6 +175,7 @@ public class ModStartupConfig {
 
     public static final ConduitTalisman CONDUIT_TALISMAN;
     public static final CreeperTalisman CREEPER_TALISMAN;
+    public static final EndermanTalisman ENDERMAN_TALISMAN;
     public static final PhantomTalisman PHANTOM_TALISMAN;
     public static final SilverfishTalisman SILVERFISH_TALISMAN;
 
@@ -149,6 +184,7 @@ public class ModStartupConfig {
 
         CONDUIT_TALISMAN = new ConduitTalisman(builder);
         CREEPER_TALISMAN = new CreeperTalisman(builder);
+        ENDERMAN_TALISMAN = new EndermanTalisman(builder);
         PHANTOM_TALISMAN = new PhantomTalisman(builder);
         SILVERFISH_TALISMAN = new SilverfishTalisman(builder);
 

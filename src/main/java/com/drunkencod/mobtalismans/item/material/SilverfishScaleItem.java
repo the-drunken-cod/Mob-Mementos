@@ -1,4 +1,4 @@
-package com.drunkencod.mobtalismans.item.ingredient;
+package com.drunkencod.mobtalismans.item.material;
 
 import net.minecraft.world.item.Item;
 

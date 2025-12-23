@@ -1,0 +1,34 @@
+{
+    "parent": "mobtalismans:root",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:phantom_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.phantom_talisman.title",
+            "fallback": "Phantom Talisman"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.phantom_talisman.description",
+            "fallback": "Cloak yourself in phantom membrane to hide from nocturnal vultures."
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:phantom_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}

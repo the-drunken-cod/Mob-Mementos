@@ -1,0 +1,34 @@
+{
+    "parent": "mobtalismans:have_endermite_scale",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:enderman_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.enderman_talisman.title",
+            "fallback": "Enderman Talisman"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.enderman_talisman.description",
+            "fallback": "Convince an Enderman to stop a senseless life of vandalism using an anklet."
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:enderman_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}

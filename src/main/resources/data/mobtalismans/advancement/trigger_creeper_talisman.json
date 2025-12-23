@@ -1,0 +1,34 @@
+{
+    "parent": "mobtalismans:root",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:creeper_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.creeper_talisman.title",
+            "fallback": "Creeper Talisman"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.creeper_talisman.description",
+            "fallback": "Keep wearing the Creeper Talisman and no block explodes."
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:creeper_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}

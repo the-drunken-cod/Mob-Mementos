@@ -6,6 +6,7 @@
         "mobtalismans:archaeology/trail_ruins_rare",
         "mobtalismans:chests/jungle_temple",
         "mobtalismans:chests/simple_dungeon",
+        "mobtalismans:entities/endermite",
         "mobtalismans:entities/silverfish"
     ]
 }

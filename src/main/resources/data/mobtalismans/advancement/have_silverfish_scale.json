@@ -1,0 +1,36 @@
+{
+    "parent": "mobtalismans:root",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:silverfish_scale",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.silverfish_scale.title",
+            "fallback": "Silverfish Scale"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.silverfish_scale.description",
+            "fallback": "Politely ask a Silverfish for one of its scales."
+        }
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "mobtalismans:silverfish_scale"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item"
+        ]
+    ]
+}

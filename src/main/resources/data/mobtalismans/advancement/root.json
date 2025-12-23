@@ -1,10 +1,10 @@
 {
     "display": {
         "icon": {
-            "id": "mobtalismans:conduit_talisman",
+            "id": "mobtalismans:crude_talisman_vessel",
             "count": 1
         },
-        "background": "minecraft:textures/block/chiseled_tuff_bricks.png",
+        "background": "minecraft:textures/block/chiseled_tuff.png",
         "title": {
             "translate": "advancements.mobtalismans.root.title",
             "fallback": "Mob Talismans"

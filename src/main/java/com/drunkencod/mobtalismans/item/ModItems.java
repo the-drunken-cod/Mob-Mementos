@@ -1,6 +1,6 @@
 package com.drunkencod.mobtalismans.item;
 
-import com.drunkencod.mobtalismans.item.ingredient.*;
+import com.drunkencod.mobtalismans.item.material.*;
 import com.drunkencod.mobtalismans.item.talisman.*;
 import com.drunkencod.mobtalismans.item.vessel.*;
 import com.drunkencod.mobtalismans.MobTalismans;
@@ -10,7 +10,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MobTalismans.MOD_ID);
 
-    // #region Ingredients:
+    // #region Materials:
+
+    public static final DeferredItem<EndermiteScaleItem> ENDERMITE_SCALE = ITEMS.register(
+            EndermiteScaleItem.REGISTRY_NAME, EndermiteScaleItem::new);
 
     public static final DeferredItem<SilverfishScaleItem> SILVERFISH_SCALE = ITEMS.register(
             SilverfishScaleItem.REGISTRY_NAME, SilverfishScaleItem::new);
@@ -33,6 +36,9 @@ public class ModItems {
 
     public static final DeferredItem<ConduitTalismanItem> CONDUIT_TALISMAN = ITEMS.register(
             ConduitTalismanItem.REGISTRY_NAME, ConduitTalismanItem::new);
+
+    public static final DeferredItem<EndermanTalismanItem> ENDERMAN_TALISMAN = ITEMS.register(
+            EndermanTalismanItem.REGISTRY_NAME, EndermanTalismanItem::new);
 
     public static final DeferredItem<PhantomTalismanItem> PHANTOM_TALISMAN = ITEMS.register(
             PhantomTalismanItem.REGISTRY_NAME, PhantomTalismanItem::new);

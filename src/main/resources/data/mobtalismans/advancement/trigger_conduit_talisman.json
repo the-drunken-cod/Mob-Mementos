@@ -1,0 +1,34 @@
+{
+    "parent": "mobtalismans:root",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:conduit_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.conduit_talisman.title",
+            "fallback": "Conduit Talisman"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.conduit_talisman.description",
+            "fallback": "Wear a conduit necklace to disperse of waterborne nuisances."
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:conduit_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}
