@@ -110,7 +110,7 @@ public class ModStartupConfig {
                     .translation("config.mobtalismans.enderman_talisman.durability")
                     .comment("The durability of the Enderman Talisman.")
                     .translation("config.mobtalismans.enderman_talisman.durability.comment")
-                    .defineInRange("enderman_talisman.durability", 1024, 0, Integer.MAX_VALUE);
+                    .defineInRange("enderman_talisman.durability", 2031, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }

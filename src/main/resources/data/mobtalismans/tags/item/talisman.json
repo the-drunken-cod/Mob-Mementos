@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "mobtalismans:conduit_talisman",
+        "mobtalismans:creeper_talisman",
+        "mobtalismans:enderman_talisman",
+        "mobtalismans:phantom_talisman",
+        "mobtalismans:silverfish_talisman"
+    ]
+}
