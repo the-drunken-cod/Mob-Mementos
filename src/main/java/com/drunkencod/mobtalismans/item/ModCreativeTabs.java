@@ -1,7 +1,7 @@
 package com.drunkencod.mobtalismans.item;
 
 import com.drunkencod.mobtalismans.MobTalismans;
-
+import com.drunkencod.mobtalismans.item.talisman.AbstractTalismanItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,17 +19,22 @@ public class ModCreativeTabs {
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> ModItems.CONDUIT_TALISMAN.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
-                        output.accept(ModItems.CONDUIT_TALISMAN.get());
-                        output.accept(ModItems.CREEPER_TALISMAN.get());
-                        output.accept(ModItems.ENDERMAN_TALISMAN.get());
-                        output.accept(ModItems.PHANTOM_TALISMAN.get());
-                        output.accept(ModItems.SILVERFISH_TALISMAN.get());
+                        addTalismanItem(output, ModItems.CONDUIT_TALISMAN.get());
+                        addTalismanItem(output, ModItems.CREEPER_TALISMAN.get());
+                        addTalismanItem(output, ModItems.ENDERMAN_TALISMAN.get());
+                        addTalismanItem(output, ModItems.PHANTOM_TALISMAN.get());
+                        addTalismanItem(output, ModItems.SILVERFISH_TALISMAN.get());
 
                         output.accept(ModItems.CRUDE_TALISMAN_VESSEL.get());
                         output.accept(ModItems.REFINED_TALISMAN_VESSEL.get());
-                        output.accept(ModItems.SUPREME_TALISMAN_VESSEL.get());
+                        // output.accept(ModItems.SUPREME_TALISMAN_VESSEL.get());
 
                         output.accept(ModItems.ENDERMITE_SCALE.get());
                         output.accept(ModItems.SILVERFISH_SCALE.get());
                     }).build());
+
+    private static void addTalismanItem(CreativeModeTab.Output output, AbstractTalismanItem item) {
+        if (item.isEnabled())
+            output.accept(item);
+    }
 }

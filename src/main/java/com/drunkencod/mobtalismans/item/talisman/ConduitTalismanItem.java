@@ -1,11 +1,11 @@
 package com.drunkencod.mobtalismans.item.talisman;
 
-import com.drunkencod.mobtalismans.MobTalismans;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
+import com.drunkencod.mobtalismans.MobTalismans;
 import io.wispforest.accessories.api.slot.SlotReference;
 import java.util.List;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -13,9 +13,9 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
@@ -23,19 +23,21 @@ public class ConduitTalismanItem extends AbstractTalismanItem {
     public static final String REGISTRY_NAME = "conduit_talisman";
 
     public ConduitTalismanItem() {
-        super(getDefaultProps(ModStartupConfig.CONDUIT_TALISMAN.DURABILITY.get())
+        super(REGISTRY_NAME, getDefaultProps(ModStartupConfig.CONDUIT_TALISMAN.DURABILITY.get())
                 .rarity(Rarity.UNCOMMON));
     }
 
-    @Override
-    public void getExtraTooltip(ItemStack stack, List<Component> tooltips, TooltipContext tooltipContext,
-            TooltipFlag tooltipType) {
-        tooltips.add(Component.translatable("item.mobtalismans.conduit_talisman.tooltip"));
+    public boolean isEnabled() {
+        return ModStartupConfig.CONDUIT_TALISMAN.ENABLED.get();
     }
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        Level level = reference.entity().level();
+        if (!isEnabled())
+            return;
+
+        Entity playerEntity = reference.entity();
+        Level level = playerEntity.level();
 
         double radius = ModStartupConfig.CONDUIT_TALISMAN.RADIUS.get();
         double damage = ModStartupConfig.CONDUIT_TALISMAN.DAMAGE.get();
@@ -81,7 +83,8 @@ public class ConduitTalismanItem extends AbstractTalismanItem {
                     triggerTalismanAdvancement(reference, stack);
 
                     // damage talisman
-                    damageTalisman(stack);
+                    if (playerEntity instanceof Player player)
+                        damageTalisman(stack, (ServerLevel) level, (Player) player);
                 }
             }
         }
@@ -90,7 +93,7 @@ public class ConduitTalismanItem extends AbstractTalismanItem {
     private List<Entity> getNearbyHostileAquaticMobs(Level level, Entity entity, double radius) {
         return level.getEntities(entity, entity.getBoundingBox().inflate(radius), e -> {
             return e.getType().getTags()
-                    .anyMatch(tag -> tag.location().toString().equals("mobtalismans:hostile_aquatic"))
+                    .anyMatch(tag -> tag.location().toString().equals(MobTalismans.MOD_ID + ":hostile_aquatic"))
                     && e instanceof Mob;
         });
     }

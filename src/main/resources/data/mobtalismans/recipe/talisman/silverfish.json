@@ -1,4 +1,10 @@
 {
+    "neoforge:conditions": [
+        {
+            "type": "mobtalismans:config_enabled",
+            "config_key": "silverfish_talisman"
+        }
+    ],
     "type": "minecraft:crafting_shaped",
     "category": "building",
     "pattern": [

@@ -7,12 +7,12 @@ import io.wispforest.accessories.api.slot.SlotReference;
 import java.util.HashMap;
 import java.util.List;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.InfestedBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,23 +24,24 @@ public class SilverfishTalismanItem extends AbstractTalismanItem {
     private HashMap<Block, Block> uninfestedCache = new HashMap<>();
 
     public SilverfishTalismanItem() {
-        super(getDefaultProps(ModStartupConfig.SILVERFISH_TALISMAN.DURABILITY.get()));
+        super(REGISTRY_NAME, getDefaultProps(ModStartupConfig.SILVERFISH_TALISMAN.DURABILITY.get()));
 
         InfestedBlock.BLOCK_BY_HOST_BLOCK.forEach((hostBlock, infestedBlock) -> {
             uninfestedCache.put(infestedBlock, hostBlock);
         });
     }
 
-    @Override
-    public void getExtraTooltip(ItemStack stack, List<Component> tooltips, TooltipContext tooltipContext,
-            TooltipFlag tooltipType) {
-        tooltips.add(Component.translatable("item.mobtalismans.silverfish_talisman.tooltip"));
+    public boolean isEnabled() {
+        return ModStartupConfig.SILVERFISH_TALISMAN.ENABLED.get();
     }
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        Entity entity = reference.entity();
-        Level level = entity.level();
+        if (!isEnabled())
+            return;
+
+        Entity playerEntity = reference.entity();
+        Level level = playerEntity.level();
 
         double radius = ModStartupConfig.SILVERFISH_TALISMAN.RADIUS.get();
         int tickInterval = ModStartupConfig.SILVERFISH_TALISMAN.CHECK_INTERVAL_TICKS.get();
@@ -50,8 +51,8 @@ public class SilverfishTalismanItem extends AbstractTalismanItem {
             return;
 
         // check for infested blocks nearby at specified tick interval
-        if (entity.tickCount > 0 && entity.tickCount % tickInterval == 0) {
-            List<BlockPos> nearbyInfestedBlocks = getNearbyInfestedBlocks(level, entity, radius);
+        if (playerEntity.tickCount > 0 && playerEntity.tickCount % tickInterval == 0) {
+            List<BlockPos> nearbyInfestedBlocks = getNearbyInfestedBlocks(level, playerEntity, radius);
             if (!nearbyInfestedBlocks.isEmpty()) {
                 int i = 0;
                 for (BlockPos blockPos : nearbyInfestedBlocks) {
@@ -65,7 +66,8 @@ public class SilverfishTalismanItem extends AbstractTalismanItem {
                         triggerTalismanAdvancement(reference, stack);
 
                         // damage talisman
-                        damageTalisman(stack);
+                        if (playerEntity instanceof Player player)
+                            damageTalisman(stack, (ServerLevel) level, (Player) player);
                     }
 
                     // play silverfish kill sound

@@ -33,6 +33,9 @@ public class PhantomSweepAttackGoalMixin {
     @Inject(method = "canContinueToUse", at = @At("RETURN"), cancellable = true)
     private void mobtalismans$checkForTalisman(CallbackInfoReturnable<Boolean> cir) {
         try {
+            if (!ModItems.PHANTOM_TALISMAN.get().isEnabled())
+                return;
+
             if (!cir.getReturnValue())
                 return;
 

@@ -10,14 +10,22 @@ import com.drunkencod.mobtalismans.advancement.ModCriteriaTriggers;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
 public abstract class AbstractTalismanItem extends Item implements Accessory {
-    public AbstractTalismanItem(Item.Properties properties) {
+    private String registryName;
+
+    public AbstractTalismanItem(String registryName, Item.Properties properties) {
         super(properties);
+
+        this.registryName = registryName;
 
         AccessoriesAPI.registerAccessory(this, this);
     }
@@ -25,8 +33,14 @@ public abstract class AbstractTalismanItem extends Item implements Accessory {
     @Override
     public void getExtraTooltip(ItemStack stack, List<Component> tooltips, TooltipContext tooltipContext,
             TooltipFlag tooltipType) {
-        // noop
+        if (!isEnabled())
+            tooltips.add(Component.translatable("tooltip.mobtalismans.disabled")
+                    .withStyle(ChatFormatting.RED, ChatFormatting.ITALIC));
+        else
+            tooltips.add(getTooltip(registryName));
     }
+
+    public abstract boolean isEnabled();
 
     protected static Item.Properties getDefaultProps(int durability) {
         Item.Properties props = new Item.Properties().stacksTo(1);
@@ -35,9 +49,19 @@ public abstract class AbstractTalismanItem extends Item implements Accessory {
         return props;
     }
 
-    protected void damageTalisman(ItemStack stack) {
-        if (stack.getMaxDamage() > 0 && stack.getDamageValue() < stack.getMaxDamage())
-            stack.setDamageValue(stack.getDamageValue() + 1);
+    protected void damageTalisman(ItemStack stack, ServerLevel level, Player player) {
+        if (!stack.isDamageableItem())
+            return;
+
+        // play break sound if going from 1 to 0
+        if (stack.getDamageValue() == stack.getMaxDamage() - 1) {
+            level.playSound(null, player.blockPosition(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.7f,
+                    0.8f + level.getRandom().nextFloat() * 0.4f);
+        }
+
+        stack.hurtAndBreak(1, level, null, item -> {
+            // noop
+        });
     }
 
     protected Component getTooltip(String registryName) {

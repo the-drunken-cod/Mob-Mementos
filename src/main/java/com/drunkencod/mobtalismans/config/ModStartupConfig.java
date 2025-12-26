@@ -8,17 +8,21 @@ public class ModStartupConfig {
     // #region Conduit Talisman:
 
     public static class ConduitTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.DoubleValue RADIUS;
-
         public final ModConfigSpec.DoubleValue DAMAGE;
-
         public final ModConfigSpec.IntValue DAMAGE_INTERVAL_TICKS;
-
         public final ModConfigSpec.IntValue DURABILITY;
 
         ConduitTalisman(ModConfigSpec.Builder builder) {
             builder.push("conduit_talisman")
                     .translation("config.mobtalismans.conduit_talisman");
+
+            ENABLED = builder
+                    .translation("config.mobtalismans.conduit_talisman.enabled")
+                    .comment("Whether the Conduit Talisman is enabled.")
+                    .translation("config.mobtalismans.conduit_talisman.enabled.comment")
+                    .define("conduit_talisman.enabled", true);
 
             RADIUS = builder
                     .translation("config.mobtalismans.conduit_talisman.radius")
@@ -51,6 +55,7 @@ public class ModStartupConfig {
     // #region Creeper Talisman:
 
     public static class CreeperTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.DoubleValue RADIUS;
         public final ModConfigSpec.IntValue CHECK_INTERVAL_TICKS;
         public final ModConfigSpec.IntValue DURABILITY;
@@ -58,6 +63,12 @@ public class ModStartupConfig {
         CreeperTalisman(ModConfigSpec.Builder builder) {
             builder.push("creeper_talisman")
                     .translation("config.mobtalismans.creeper_talisman");
+
+            ENABLED = builder
+                    .translation("config.mobtalismans.creeper_talisman.enabled")
+                    .comment("Whether the Creeper Talisman is enabled.")
+                    .translation("config.mobtalismans.creeper_talisman.enabled.comment")
+                    .define("creeper_talisman.enabled", true);
 
             RADIUS = builder
                     .translation("config.mobtalismans.creeper_talisman.radius")
@@ -85,6 +96,7 @@ public class ModStartupConfig {
     // #region Enderman Talisman:
 
     public static class EndermanTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.DoubleValue RADIUS;
         public final ModConfigSpec.IntValue CHECK_INTERVAL_TICKS;
         public final ModConfigSpec.IntValue DURABILITY;
@@ -92,6 +104,12 @@ public class ModStartupConfig {
         EndermanTalisman(ModConfigSpec.Builder builder) {
             builder.push("enderman_talisman")
                     .translation("config.mobtalismans.enderman_talisman");
+
+            ENABLED = builder
+                    .translation("config.mobtalismans.enderman_talisman.enabled")
+                    .comment("Whether the Enderman Talisman is enabled.")
+                    .translation("config.mobtalismans.enderman_talisman.enabled.comment")
+                    .define("enderman_talisman.enabled", true);
 
             RADIUS = builder
                     .translation("config.mobtalismans.enderman_talisman.radius")
@@ -119,11 +137,18 @@ public class ModStartupConfig {
     // #region Phantom Talisman:
 
     public static class PhantomTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.IntValue DURABILITY;
 
         PhantomTalisman(ModConfigSpec.Builder builder) {
             builder.push("phantom_talisman")
                     .translation("config.mobtalismans.phantom_talisman");
+
+            ENABLED = builder
+                    .translation("config.mobtalismans.phantom_talisman.enabled")
+                    .comment("Whether the Phantom Talisman is enabled.")
+                    .translation("config.mobtalismans.phantom_talisman.enabled.comment")
+                    .define("phantom_talisman.enabled", true);
 
             DURABILITY = builder
                     .translation("config.mobtalismans.phantom_talisman.durability")
@@ -138,6 +163,7 @@ public class ModStartupConfig {
     // #region Silverfish Talisman:
 
     public static class SilverfishTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.DoubleValue RADIUS;
         public final ModConfigSpec.IntValue CHECK_INTERVAL_TICKS;
         public final ModConfigSpec.IntValue DURABILITY;
@@ -145,6 +171,12 @@ public class ModStartupConfig {
         SilverfishTalisman(ModConfigSpec.Builder builder) {
             builder.push("silverfish_talisman")
                     .translation("config.mobtalismans.silverfish_talisman");
+
+            ENABLED = builder
+                    .translation("config.mobtalismans.silverfish_talisman.enabled")
+                    .comment("Whether the Silverfish Talisman is enabled.")
+                    .translation("config.mobtalismans.silverfish_talisman.enabled.comment")
+                    .define("silverfish_talisman.enabled", true);
 
             RADIUS = builder
                     .translation("config.mobtalismans.silverfish_talisman.radius")

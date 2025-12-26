@@ -51,6 +51,7 @@
     "item.mobtalismans.silverfish_talisman": "Silverfish Bangle",
     "item.mobtalismans.supreme_talisman_vessel": "Supreme Talisman Vessel",
     "itemGroup.mobtalismans": "Mob Talismans",
+    "tooltip.mobtalismans.disabled": "Disabled",
     "mobtalismans.configuration.conduit_talisman": "Conduit Talisman Config",
     "mobtalismans.configuration.creeper_talisman": "Creeper Talisman Config",
     "mobtalismans.configuration.enderman_talisman": "Enderman Talisman Config",

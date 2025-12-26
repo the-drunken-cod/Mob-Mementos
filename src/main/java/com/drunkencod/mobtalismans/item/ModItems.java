@@ -26,8 +26,9 @@ public class ModItems {
     public static final DeferredItem<RefinedTalismanVesselItem> REFINED_TALISMAN_VESSEL = ITEMS.register(
             RefinedTalismanVesselItem.REGISTRY_NAME, RefinedTalismanVesselItem::new);
 
-    public static final DeferredItem<SupremeTalismanVesselItem> SUPREME_TALISMAN_VESSEL = ITEMS.register(
-            SupremeTalismanVesselItem.REGISTRY_NAME, SupremeTalismanVesselItem::new);
+    // public static final DeferredItem<SupremeTalismanVesselItem>
+    // SUPREME_TALISMAN_VESSEL = ITEMS.register(
+    // SupremeTalismanVesselItem.REGISTRY_NAME, SupremeTalismanVesselItem::new);
 
     // #region Talismans:
 

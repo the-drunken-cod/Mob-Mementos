@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.drunkencod.mobtalismans.advancement.ModCriteriaTriggers;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
+import com.drunkencod.mobtalismans.data.ModConditions;
 import com.drunkencod.mobtalismans.item.*;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -21,6 +22,7 @@ public class MobTalismans {
     public MobTalismans(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
+        ModConditions.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
