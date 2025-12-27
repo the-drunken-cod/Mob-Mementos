@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.silverfish_talisman.title",
-            "fallback": "Silverfish Talisman"
+            "translate": "advancements.mobtalismans.silverfish_talisman.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.silverfish_talisman.description",
-            "fallback": "Make use of wearable pesticide."
+            "translate": "advancements.mobtalismans.silverfish_talisman.description"
         }
     },
     "criteria": {

@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.phantom_talisman.title",
-            "fallback": "Phantom Talisman"
+            "translate": "advancements.mobtalismans.phantom_talisman.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.phantom_talisman.description",
-            "fallback": "Cloak yourself in phantom membrane to hide from nocturnal vultures."
+            "translate": "advancements.mobtalismans.phantom_talisman.description"
         }
     },
     "criteria": {

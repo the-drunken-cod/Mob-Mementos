@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.creeper_talisman.title",
-            "fallback": "Creeper Talisman"
+            "translate": "advancements.mobtalismans.creeper_talisman.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.creeper_talisman.description",
-            "fallback": "Keep wearing the Creeper Talisman and no block explodes."
+            "translate": "advancements.mobtalismans.creeper_talisman.description"
         }
     },
     "criteria": {

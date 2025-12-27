@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.refined_talisman_vessel.title",
-            "fallback": "Refined Talisman Vessel"
+            "translate": "advancements.mobtalismans.refined_talisman_vessel.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.refined_talisman_vessel.description",
-            "fallback": "Craft a Refined Talisman Vessel."
+            "translate": "advancements.mobtalismans.refined_talisman_vessel.description"
         }
     },
     "criteria": {

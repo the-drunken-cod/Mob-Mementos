@@ -14,7 +14,7 @@
             "item": "minecraft:shulker_shell"
         },
         "N": {
-            "item": "minecraft:nether_star"
+            "tag": "c:nether_stars"
         }
     },
     "result": {

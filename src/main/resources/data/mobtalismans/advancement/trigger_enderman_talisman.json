@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.enderman_talisman.title",
-            "fallback": "Enderman Talisman"
+            "translate": "advancements.mobtalismans.enderman_talisman.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.enderman_talisman.description",
-            "fallback": "Convince an Enderman to stop a senseless life of vandalism using an anklet."
+            "translate": "advancements.mobtalismans.enderman_talisman.description"
         }
     },
     "criteria": {

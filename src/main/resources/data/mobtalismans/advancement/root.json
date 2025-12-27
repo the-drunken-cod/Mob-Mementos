@@ -6,12 +6,10 @@
         },
         "background": "minecraft:textures/block/chiseled_tuff.png",
         "title": {
-            "translate": "advancements.mobtalismans.root.title",
-            "fallback": "Mob Talismans"
+            "translate": "advancements.mobtalismans.root.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.root.description",
-            "fallback": "Empowering artifacts await their discovery."
+            "translate": "advancements.mobtalismans.root.description"
         },
         "announce_to_chat": false,
         "show_toast": false

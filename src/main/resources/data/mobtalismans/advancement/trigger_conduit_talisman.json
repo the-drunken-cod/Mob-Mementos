@@ -6,12 +6,10 @@
             "count": 1
         },
         "title": {
-            "translate": "advancements.mobtalismans.conduit_talisman.title",
-            "fallback": "Conduit Talisman"
+            "translate": "advancements.mobtalismans.conduit_talisman.title"
         },
         "description": {
-            "translate": "advancements.mobtalismans.conduit_talisman.description",
-            "fallback": "Wear a conduit necklace to disperse of waterborne nuisances."
+            "translate": "advancements.mobtalismans.conduit_talisman.description"
         }
     },
     "criteria": {
