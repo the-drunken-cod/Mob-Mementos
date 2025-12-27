@@ -79,10 +79,13 @@ Please also [report any issues or suggestions](https://github.com/the-drunken-co
         - [ ] &lt;P4&gt; **Wandering Trader** (charm): prevents wandering traders from spawning in a big radius
         - [ ] &lt;P4&gt; **Warden** (shoes): nearby shriekers have a chance to not activate, nearby wardens can't sniff for the player anymore
         - [ ] &lt;P4&gt; **Zombie** (charm): permanently makes nearby zombies unable to spawn reinforcements and break down doors
-- [ ] &lt;P5&gt; Placeable Charms:
-    - **Evoker**: used on beds & respawn anchors to make them a single-use fallback spawnpoint
+- [ ] &lt;P5&gt; Support for newer 1.21.x versions
+- [ ] &lt;P6&gt; Placeable Talismans:
+    - **Evoker**: placed near beds & respawn anchors to make them a fallback spawnpoint
         - Any other bed can be used as a temporary spawnpoint, but if they're broken, the player will respawn at their fallback bed/anchor
         - Chat message when the charmed bed/anchor is used or broken to inform the player
+        - Configurable amount of uses before the charm breaks or needs to be recharged
+- [ ] &lt;P7&gt; Fabric Support
 
 <br>
 
