@@ -69,15 +69,11 @@ jobs:
           echo "Extracted version: $MOD_VERSION"
           echo "MOD_VERSION=$MOD_VERSION" >> $GITHUB_OUTPUT
 
-          # Rename file for develop branch builds
-          if [[ "${{ github.ref }}" == "refs/heads/develop" && "${{ github.event_name }}" == "push" ]]; then
-            NEW_NAME="mobtalismans-${MOD_VERSION}-beta.${GITHUB_RUN_NUMBER}.jar"
-            echo "Renaming $MAIN_JAR to $NEW_NAME"
-            mv "$MAIN_JAR" "$NEW_NAME"
-            echo "FILE_NAME=$NEW_NAME" >> $GITHUB_OUTPUT
-          else
-            echo "FILE_NAME=$(basename $MAIN_JAR)" >> $GITHUB_OUTPUT
-          fi
+          # Rename file
+          NEW_NAME="mobtalismans-${MOD_VERSION}-beta.${GITHUB_RUN_NUMBER}.jar"
+          echo "Renaming $MAIN_JAR to $NEW_NAME"
+          mv "$MAIN_JAR" "$NEW_NAME"
+          echo "FILE_NAME=$NEW_NAME" >> $GITHUB_OUTPUT
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4.6.2
