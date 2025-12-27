@@ -1,11 +1,33 @@
-# Mob Talismans
-NeoForge mod for Java Minecraft 1.21.1 that adds QoL accessories (curios) that provide utilities against annoying mobs, as well as some other fun gadgets.
+<div style="text-align: center;" align="center">
 
-**Requires [Accessories](https://modrinth.com/mod/accessories/versions?l=neoforge)**
+# ![Mob Talismans](./.github/assets/banner.jpg)  
+
+NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) providing utilities against annoying mobs.  
+**Requires the mod [Accessories.](https://modrinth.com/mod/accessories/versions?l=neoforge&g=1.21.1)**
+
+---
+
+### [Content](#content) &bull; [Intents&nbsp;&amp;&nbsp;Goals](#intents--goals) &bull; [Installation](#installation) &bull; [Modpack&nbsp;Policy](#modpack-policy) &bull; [Ideas&nbsp;&amp;&nbsp;Roadmap](#ideas--roadmap) &bull; [Attribution](#attribution) &bull; [Disclaimer](#disclaimer)
+
+---
+
+</div>
 
 <br>
 
-## Goals:
+<br>
+
+## Content
+### Talismans
+- **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
+- **Creeper Belt**: prevents nearby creepers from doing block damage
+- **Enderman Anklet**: prohibits nearby endermen from picking up blocks
+- **Silverfish Bangle**: converts infested blocks nearby to their non-infested variant
+- **Phantom Cloak**: deters phantoms, just like cats do
+
+<br>
+
+## Intents & Goals
 - Provide useful utilities against annoying mobs
 - Enhance gameplay without conveying a feeling of becoming too overpowered or trivializing mob interactions
 - Occupy the more rarely used accessory slots
@@ -13,12 +35,15 @@ NeoForge mod for Java Minecraft 1.21.1 that adds QoL accessories (curios) that p
 
 <br>
 
-## Talismans:
-- **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
-- **Creeper Belt**: prevents nearby creepers from doing block damage
-- **Enderman Anklet**: prohibits nearby endermen from picking up blocks
-- **Silverfish Bangle**: converts infested blocks nearby to their non-infested variant
-- **Phantom Cloak**: deters phantoms, just like cats do
+## Installation
+1. Create a **Minecraft Java Edition v1.21.1 instance with [the NeoForge modloader.](https://neoforged.net/)**  
+  Using a launcher like [ATLauncher](https://atlauncher.com/) or [MultiMC](https://multimc.org/) will simplify this process.
+2. Download the latest Mob Talismans mod jar from the [**releases page.**](https://github.com/the-drunken-cod/MobTalismans/releases)
+3. Download the latest version of the mod [**Accessories.**](https://modrinth.com/mod/accessories/versions?l=neoforge&g=1.21.1)
+4. Place both .jar files into the `mods` folder of your Minecraft instance.
+5. Launch the game and enjoy!  
+  After launching, you can modify the config file via the in-game options menu (Mods > "Mob Talismans" > Config) or by editing the file located at `./config/mobtalismans-startup.toml` in your Minecraft instance folder.  
+  A restart might be required for the more fundamental changes to take effect (i.e. item properties like durability, enabling/disabling items, etc.).
 
 <br>
 
@@ -29,14 +54,7 @@ Please also [report any issues or suggestions](https://github.com/the-drunken-co
 
 <br>
 
-## Disclaimer
-NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-
-<br><br><br><br><br><br>
-
-## Ideas, Roadmap & Phases:
+## Ideas & Roadmap
 - &lt;P1&gt; Accessories that are somewhat expensive to make that make mobs less annoying or offer other utilities tied to mobs
     - [x] &lt;P1&gt; Durability that is used up when the effect triggers
     - [x] &lt;P1&gt; Talismans:
@@ -64,3 +82,15 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
     - **Evoker**: used on beds & respawn anchors to make them a single-use fallback spawnpoint
         - Any other bed can be used as a temporary spawnpoint, but if they're broken, the player will respawn at their fallback bed/anchor
         - Chat message when the charmed bed/anchor is used or broken to inform the player
+
+<br>
+
+## Attribution
+- Banner font created with [textstudio.com](https://www.textstudio.com/logo/minecraft-logo-generator-697)
+
+<br>
+
+## Disclaimer
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
