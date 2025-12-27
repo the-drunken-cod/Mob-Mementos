@@ -45,7 +45,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         - [x] &lt;P1&gt; **Enderman Anklet**: prohibits nearby endermen from picking up blocks
         - [x] &lt;P1&gt; **Silverfish Bangle**: converts infested blocks nearby to their non-infested variant
         - [x] &lt;P1&gt; **Phantom Cloak**: deters phantoms, just like cats do
-    - [ ] Rendering models
+    - [ ] &lt;P2&gt; Rendering models
+    - [ ] &lt;P2&gt; Recharging mechanic
     - [ ] &lt;P3&gt; More Talismans:
         - [ ] &lt;P3&gt; **Bat** (glasses): prevents bats from spawning nearby
         - [ ] &lt;P3&gt; **Bee**: prevents beehives from becoming agitated when harvesting or breaking them
@@ -59,7 +60,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
         - [ ] &lt;P3&gt; **Wandering Trader** (charm): prevents wandering traders from spawning in a big radius
         - [ ] &lt;P3&gt; **Warden** (shoes): shriekers have a chance to not activate, the warden can't sniff the player anymore
         - [ ] &lt;P3&gt; **Zombie** (charm): prevents zombies from spawning reinforcements and breaking down doors
-    - [ ] &lt;P3&gt; Recharging mechanic
 - [ ] &lt;P4&gt; Placeable Charms:
     - **Evoker**: used on beds & respawn anchors to make them a single-use fallback spawnpoint
         - Any other bed can be used as a temporary spawnpoint, but if they're broken, the player will respawn at their fallback bed/anchor
