@@ -3,13 +3,16 @@
 # ![Mob Talismans](./.github/assets/banner.jpg)  
 
 NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) providing utilities against annoying mobs.  
+  
 **Requires the mod [Accessories.](https://modrinth.com/mod/accessories/versions?l=neoforge&g=1.21.1)**  
   
+—  
+
 <sup>Also available on <a href="https://modrinth.com/mod/mob-talismans">Modrinth</a> & <a href="https://www.curseforge.com/minecraft/mc-mods/mob-talismans">CurseForge</a></sup>
 
 ---
 
-### [Wiki](https://github.com/the-drunken-cod/MobTalismans/wiki) &bull; [Content](#content) &bull; [Intents&nbsp;&amp;&nbsp;Goals](#intents--goals) &bull; [Installation](#installation) &bull; [Modpack&nbsp;Policy](#modpack-policy) &bull; [Ideas&nbsp;&amp;&nbsp;Roadmap](#ideas--roadmap) &bull; [Attribution](#attribution) &bull; [Disclaimer](#disclaimer) &bull; [Licenses](#licenses)
+### [Wiki](https://github.com/the-drunken-cod/MobTalismans/wiki) &bull; [Content](#content) &bull; [Intents&nbsp;&amp;&nbsp;Goals](#intents--goals) &bull; [Installation](#installation) &bull; [Modpack&nbsp;Policy](#modpack-policy) &bull; [Ideas](#ideas) &bull; [Attribution](#attribution) &bull; [Disclaimer](#disclaimer) &bull; [Licenses](#licenses)
 
 ---
 
@@ -17,8 +20,8 @@ NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) provid
 
 <br>
 
-## Content
-### Talismans
+## Content:
+### Talismans:
 - **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
 - **Creeper Belt**: prevents nearby creepers from doing block damage
 - **Enderman Anklet**: prohibits nearby endermen from picking up blocks
@@ -27,14 +30,14 @@ NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) provid
 
 <br>
 
-## Intents & Goals
+## Intents & Goals:
 - Provide useful utilities against annoying mobs or unwanted game mechanics
 - Enhance gameplay without conveying a feeling of becoming too overpowered or trivializing mob interactions
 - Be modpack and contribution friendly (many config options, easy gating of progression when altering recipes, resources licensed under MIT, etc.)
 
 <br>
 
-## Installation
+## Installation:
 1. Create a **Minecraft Java Edition 1.21.1 instance with [the NeoForge modloader.](https://neoforged.net/)**  
   Using a launcher like [ATLauncher](https://atlauncher.com/) or [MultiMC](https://multimc.org/) will simplify this process.
 2. Download the latest Mob Talismans mod jar from the [**releases page.**](https://github.com/the-drunken-cod/MobTalismans/releases)
@@ -46,14 +49,14 @@ NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) provid
 
 <br>
 
-## Modpack Policy
+## Modpack Policy:
 You are free to use Mob Talismans in any modpacks; public or private :)  
 Just make sure you abide by [our licenses](#licenses), common sense, and [the Minecraft EULA.](https://minecraft.net/en-us/eula)  
 Please also [report any issues or suggestions](https://github.com/the-drunken-cod/MobTalismans/issues), so we can improve the mod for you and other players and have better compatibility with other mods.
 
 <br>
 
-## Ideas & Roadmap
+## Ideas:
 - &lt;P1&gt; Accessories that are somewhat expensive to make that make mobs less annoying or offer other utilities tied to mobs
     - [x] &lt;P1&gt; Durability that is used up when the effect triggers
     - [x] &lt;P1&gt; Talismans:
@@ -88,18 +91,18 @@ Please also [report any issues or suggestions](https://github.com/the-drunken-co
 
 <br>
 
-## Attribution
+## Attribution:
 - Banner font created with [textstudio.com](https://www.textstudio.com/logo/minecraft-logo-generator-697)
 
 <br>
 
-## Disclaimer
-NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+## Disclaimers:
+- We use GenAI to bridge knowledge gaps and automate tedious tasks. All generated code is thoroughly reviewed. Any and all assets like textures and sounds, as well as the final detailed touch will forever remain human-made. [View our full GenAI usage policy here.](https://github.com/the-drunken-cod#genai-usage)
+- NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
 <br>
 
-## Licenses
+## Licenses:
 Code is licensed under the [AGPL-3.0-only.](./LICENSE.txt)  
-Original resources (`assets/` and `data/` in `src/main/resources/`) are licensed under [MIT](src/main/resources/LICENSE.txt) unless otherwise stated.
+Original resources (`assets/` and `data/` in `src/main/resources/`) are licensed under [MIT](src/main/resources/LICENSE.txt) unless otherwise stated. Feel free to use them, but make sure to give credit to this mod.
