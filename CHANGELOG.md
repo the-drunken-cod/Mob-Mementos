@@ -1,6 +1,7 @@
 ## 0.1.0-beta [WIP]
 - Rebranded to Mob Mementos
     - Renamed namespace, item IDs, advancements, recipes, config options and more
+- TODO: worn golden mementos now pacify piglins
 
 <br>
 

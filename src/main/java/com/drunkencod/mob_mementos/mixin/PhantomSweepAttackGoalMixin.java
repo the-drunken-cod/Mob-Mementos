@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(targets = "net.minecraft.world.entity.monster.Phantom$PhantomSweepAttackGoal")
 public class PhantomSweepAttackGoalMixin {
-
     @Final
     @Shadow
     Phantom this$0;

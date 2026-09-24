@@ -78,7 +78,7 @@ public class ModStartupConfig {
             DURABILITY = builder
                     .comment("The durability of the Creeper Belt.")
                     .translation("config.mob_mementos.creeper_belt.durability")
-                    .defineInRange("creeper_belt.durability", 2031, 0, Integer.MAX_VALUE);
+                    .defineInRange("creeper_belt.durability", 1561, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -115,7 +115,7 @@ public class ModStartupConfig {
             DURABILITY = builder
                     .comment("The durability of the Enderman Anklet.")
                     .translation("config.mob_mementos.enderman_anklet.durability")
-                    .defineInRange("enderman_anklet.durability", 2031, 0, Integer.MAX_VALUE);
+                    .defineInRange("enderman_anklet.durability", 1561, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -139,7 +139,7 @@ public class ModStartupConfig {
             DURABILITY = builder
                     .comment("The durability of the Phantom Cloak.")
                     .translation("config.mob_mementos.phantom_cloak.durability")
-                    .defineInRange("phantom_cloak.durability", 1024, 0, Integer.MAX_VALUE);
+                    .defineInRange("phantom_cloak.durability", 2031, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
@@ -176,7 +176,7 @@ public class ModStartupConfig {
             DURABILITY = builder
                     .comment("The durability of the Silverfish Bangle.")
                     .translation("config.mob_mementos.silverfish_bangle.durability")
-                    .defineInRange("silverfish_bangle.durability", 1024, 0, Integer.MAX_VALUE);
+                    .defineInRange("silverfish_bangle.durability", 2031, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }

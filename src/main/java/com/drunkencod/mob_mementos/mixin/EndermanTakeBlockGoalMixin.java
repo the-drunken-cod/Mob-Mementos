@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(targets = "net.minecraft.world.entity.monster.EnderMan$EndermanTakeBlockGoal")
 public class EndermanTakeBlockGoalMixin {
-
     @Final
     @Shadow
     private EnderMan enderman;
