@@ -17,13 +17,13 @@
             "tag": "c:ingots/iron"
         },
         "B": {
-            "tag": "mobtalismans:bat_related"
+            "tag": "mobtalismans:bat_parts"
         },
         "C": {
             "item": "mobtalismans:crude_talisman_vessel"
         }
     },
     "result": {
-        "id": "mobtalismans:conduit_talisman"
+        "id": "mobtalismans:bat_talisman"
     }
 }
