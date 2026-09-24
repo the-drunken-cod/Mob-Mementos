@@ -16,6 +16,7 @@ public record ConfigEnabledCondition(String configKey) implements ICondition {
     @Override
     public boolean test(IContext context) {
         return switch (configKey) {
+            case "bat_talisman" -> ModStartupConfig.BAT_TALISMAN.ENABLED.get();
             case "conduit_talisman" -> ModStartupConfig.CONDUIT_TALISMAN.ENABLED.get();
             case "creeper_talisman" -> ModStartupConfig.CREEPER_TALISMAN.ENABLED.get();
             case "enderman_talisman" -> ModStartupConfig.ENDERMAN_TALISMAN.ENABLED.get();

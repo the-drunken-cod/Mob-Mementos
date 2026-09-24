@@ -5,6 +5,43 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Neo's config APIs
 public class ModStartupConfig {
+    // #region Bat Talisman:
+
+    public static class BatTalisman {
+        public final ModConfigSpec.BooleanValue ENABLED;
+        public final ModConfigSpec.DoubleValue RADIUS;
+        public final ModConfigSpec.IntValue DURABILITY;
+        public final ModConfigSpec.IntValue COOLDOWN_TICKS;
+
+        BatTalisman(ModConfigSpec.Builder builder) {
+            builder.push("bat_talisman")
+                    .translation("config.mobtalismans.bat_talisman");
+
+            ENABLED = builder
+                    .comment("Whether the Bat Talisman is enabled.")
+                    .translation("config.mobtalismans.bat_talisman.enabled")
+                    .define("bat_talisman.enabled", true);
+
+            RADIUS = builder
+                    .comment("The radius in blocks around the player in which bat spawns will be prevented.")
+                    .translation("config.mobtalismans.bat_talisman.radius")
+                    .defineInRange("bat_talisman.radius", 72.0, 1.0, 128.0);
+
+            DURABILITY = builder
+                    .comment("The durability of the Bat Talisman.")
+                    .translation("config.mobtalismans.bat_talisman.durability")
+                    .defineInRange("bat_talisman.durability", 2031, 0, Integer.MAX_VALUE);
+
+            COOLDOWN_TICKS = builder
+                    .comment(
+                            "The cooldown in ticks (20 ticks = 1 second) before a player's Bat Talisman can trigger again.")
+                    .translation("config.mobtalismans.bat_talisman.cooldown_ticks")
+                    .defineInRange("bat_talisman.cooldown_ticks", 200, 0, Integer.MAX_VALUE);
+
+            builder.pop();
+        }
+    }
+
     // #region Conduit Talisman:
 
     public static class ConduitTalisman {
@@ -186,6 +223,7 @@ public class ModStartupConfig {
 
     public static final ModConfigSpec SPEC;
 
+    public static final BatTalisman BAT_TALISMAN;
     public static final ConduitTalisman CONDUIT_TALISMAN;
     public static final CreeperTalisman CREEPER_TALISMAN;
     public static final EndermanTalisman ENDERMAN_TALISMAN;
@@ -195,6 +233,7 @@ public class ModStartupConfig {
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
+        BAT_TALISMAN = new BatTalisman(builder);
         CONDUIT_TALISMAN = new ConduitTalisman(builder);
         CREEPER_TALISMAN = new CreeperTalisman(builder);
         ENDERMAN_TALISMAN = new EndermanTalisman(builder);

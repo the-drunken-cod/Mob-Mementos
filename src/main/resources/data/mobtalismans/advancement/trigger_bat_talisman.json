@@ -1,0 +1,32 @@
+{
+    "parent": "mobtalismans:have_refined_talisman_vessel",
+    "display": {
+        "icon": {
+            "id": "mobtalismans:bat_talisman",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.mobtalismans.bat_talisman.title"
+        },
+        "description": {
+            "translate": "advancements.mobtalismans.bat_talisman.description"
+        }
+    },
+    "criteria": {
+        "talisman_triggered": {
+            "trigger": "mobtalismans:talisman_triggered",
+            "conditions": {
+                "input": {
+                    "items": [
+                        "mobtalismans:bat_talisman"
+                    ]
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "talisman_triggered"
+        ]
+    ]
+}

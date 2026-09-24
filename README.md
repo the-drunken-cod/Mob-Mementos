@@ -69,7 +69,7 @@ Please also [report any issues or suggestions](https://github.com/the-drunken-co
     - [ ] &lt;P2&gt; Recharging mechanic
     - [ ] &lt;P3&gt; Mob soul capturing mechanic to fabricate or recharge talismans
     - [ ] &lt;P4&gt; More Talismans:
-        - [ ] &lt;P4&gt; **Bat** (glasses): prevents bats from spawning nearby
+        - [x] &lt;P4&gt; **Bat** (glasses): prevents bats from spawning nearby
         - [ ] &lt;P4&gt; **Bee**: prevents beehives from becoming agitated when harvesting or breaking them
         - [ ] &lt;P4&gt; **Frog**: nearby frogs drop froglight when eating normal slimes
         - [ ] &lt;P4&gt; **Ghast**: reflects ghast fireballs

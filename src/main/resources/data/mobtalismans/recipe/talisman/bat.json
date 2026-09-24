@@ -1,0 +1,29 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "mobtalismans:config_enabled",
+            "config_key": "bat_talisman"
+        }
+    ],
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "I I",
+        "I I",
+        "BCB"
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots/iron"
+        },
+        "B": {
+            "tag": "mobtalismans:bat_related"
+        },
+        "C": {
+            "item": "mobtalismans:crude_talisman_vessel"
+        }
+    },
+    "result": {
+        "id": "mobtalismans:conduit_talisman"
+    }
+}

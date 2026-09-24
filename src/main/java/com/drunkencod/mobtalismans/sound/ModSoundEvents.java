@@ -14,6 +14,9 @@ public class ModSoundEvents {
 
     // #region talismans
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> BAT_TALISMAN_TRIGGERED = createSoundEvent(
+            "item.bat_talisman.triggered");
+
     public static final DeferredHolder<SoundEvent, SoundEvent> CONDUIT_TALISMAN_TRIGGERED = createSoundEvent(
             "item.conduit_talisman.triggered");
 

@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
+        "mobtalismans:bat_talisman",
         "mobtalismans:conduit_talisman",
         "mobtalismans:creeper_talisman",
         "mobtalismans:enderman_talisman",

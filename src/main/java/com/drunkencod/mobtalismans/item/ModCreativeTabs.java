@@ -19,6 +19,7 @@ public class ModCreativeTabs {
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> ModItems.CONDUIT_TALISMAN.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
+                        addTalismanItem(output, ModItems.BAT_TALISMAN.get());
                         addTalismanItem(output, ModItems.CONDUIT_TALISMAN.get());
                         addTalismanItem(output, ModItems.CREEPER_TALISMAN.get());
                         addTalismanItem(output, ModItems.ENDERMAN_TALISMAN.get());
