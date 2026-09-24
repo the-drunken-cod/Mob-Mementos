@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "bonus_rolls": 0.0,
+            "conditions": [
+                {
+                    "condition": "minecraft:random_chance_with_enchanted_bonus",
+                    "enchanted_chance": {
+                        "type": "minecraft:linear",
+                        "base": 0.3,
+                        "per_level_above_first": 0.15
+                    },
+                    "enchantment": "minecraft:fortune",
+                    "unenchanted_chance": 0.15
+                }
+            ],
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "mobtalismans:silverfish_scale"
+                }
+            ],
+            "rolls": 1.0
+        }
+    ],
+    "random_sequence": "minecraft:blocks/infested_chiseled_stone_bricks"
+}

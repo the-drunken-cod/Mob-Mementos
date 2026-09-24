@@ -1,6 +1,6 @@
 ## 0.1.0
 - Removed Endermite Scale item. Instead, the Enderman Talisman is now made from Eyes of Ender.
-- Silverfish Scales now uncommonly drop when breaking infested blocks. Fortune increases the chance.
+- Silverfish Scales now uncommonly drop when breaking infested blocks instead of from killing Silverfish. Fortune increases the chance.
 
 <br>
 
