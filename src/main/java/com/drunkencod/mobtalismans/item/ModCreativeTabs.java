@@ -29,7 +29,6 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REFINED_TALISMAN_VESSEL.get());
                         // output.accept(ModItems.SUPREME_TALISMAN_VESSEL.get());
 
-                        output.accept(ModItems.ENDERMITE_SCALE.get());
                         output.accept(ModItems.SILVERFISH_SCALE.get());
                     }).build());
 

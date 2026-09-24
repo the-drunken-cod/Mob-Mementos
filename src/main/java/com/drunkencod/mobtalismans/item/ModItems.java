@@ -12,9 +12,6 @@ public class ModItems {
 
     // #region Materials:
 
-    public static final DeferredItem<EndermiteScaleItem> ENDERMITE_SCALE = ITEMS.register(
-            EndermiteScaleItem.REGISTRY_NAME, EndermiteScaleItem::new);
-
     public static final DeferredItem<SilverfishScaleItem> SILVERFISH_SCALE = ITEMS.register(
             SilverfishScaleItem.REGISTRY_NAME, SilverfishScaleItem::new);
 

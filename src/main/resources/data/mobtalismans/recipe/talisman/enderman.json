@@ -8,13 +8,13 @@
     "type": "minecraft:crafting_shaped",
     "category": "building",
     "pattern": [
-        "SGD",
+        "EGD",
         "GVG",
-        "DGS"
+        "DGE"
     ],
     "key": {
-        "S": {
-            "item": "mobtalismans:endermite_scale"
+        "E": {
+            "item": "minecraft:eye_of_ender"
         },
         "G": {
             "tag": "c:ingots/gold"

@@ -1,5 +1,5 @@
 {
-    "parent": "mobtalismans:have_endermite_scale",
+    "parent": "mobtalismans:have_refined_talisman_vessel",
     "display": {
         "icon": {
             "id": "mobtalismans:enderman_talisman",
