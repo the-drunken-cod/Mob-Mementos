@@ -9,12 +9,15 @@
     "category": "building",
     "pattern": [
         "I I",
-        "I I",
+        "ISI",
         "BCB"
     ],
     "key": {
         "I": {
             "tag": "c:ingots/iron"
+        },
+        "S": {
+            "item": "minecraft:sculk_shrieker"
         },
         "B": {
             "tag": "mobtalismans:bat_parts"

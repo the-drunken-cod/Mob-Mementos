@@ -1,10 +1,4 @@
 {
-    "item.bat_talisman.triggered": {
-        "sounds": [
-            "mob/bat/takeoff"
-        ],
-        "subtitle": "subtitles.mobtalismans.bat_talisman.triggered"
-    },
     "item.conduit_talisman.triggered": {
         "sounds": [
             "block/conduit/attack1",

@@ -1,7 +1,7 @@
 ## 0.1.0
 - Additions:
-    - **Bat Talisman**: Prevents bats from spawning in the vicinity.
-    - Talismans will now render their own custom 3D models, instead of a flat image centered at the player model part.
+    - **Bat Talisman**: locks nearby bats into permanent hibernation once they land, and muffles their sounds.
+    - Talismans will now render custom 3D models when worn, instead of a flat image centered at the player model part.
 - Changes:
     - Removed Endermite Scale item. Instead, the Enderman Talisman is now made from Eyes of Ender.
     - Silverfish Scales now uncommonly drop when breaking infested blocks instead of from killing Silverfish. Fortune increases the chance.

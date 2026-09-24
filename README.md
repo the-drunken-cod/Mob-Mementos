@@ -22,11 +22,12 @@ NeoForge mod for Minecraft Java 1.21.1 that adds QoL accessories (curios) provid
 
 ## Content:
 ### Talismans:
-- **Conduit Necklace**: hurts aggressive aquatic mobs in the vicinity
-- **Creeper Belt**: prevents nearby creepers from doing block damage
-- **Enderman Anklet**: prohibits nearby endermen from picking up blocks
-- **Silverfish Bangle**: converts infested blocks nearby to their non-infested variant
-- **Phantom Cloak**: deters phantoms, just like cats do
+- **Bat Visor:** locks nearby bats into permanent hibernation once they land, and muffles their sounds.
+- **Conduit Necklace:** hurts aggressive aquatic mobs in the vicinity.
+- **Creeper Belt:** prevents nearby creepers from ever doing block damage again.
+- **Enderman Anklet:** prohibits nearby endermen from ever picking up blocks again.
+- **Silverfish Bangle:** converts infested stone blocks nearby to their non-infested variant.
+- **Phantom Cloak:** deters phantoms, just like cats do.
 
 <br>
 
@@ -69,7 +70,7 @@ Please also [report any issues or suggestions](https://github.com/the-drunken-co
     - [ ] &lt;P2&gt; Recharging mechanic
     - [ ] &lt;P3&gt; Mob soul capturing mechanic to fabricate or recharge talismans
     - [ ] &lt;P4&gt; More Talismans:
-        - [x] &lt;P4&gt; **Bat** (glasses): prevents bats from spawning nearby
+        - [x] &lt;P4&gt; **Bat** (glasses): silences nearby bats and makes them enter permanent hibernation
         - [ ] &lt;P4&gt; **Bee**: prevents beehives from becoming agitated when harvesting or breaking them
         - [ ] &lt;P4&gt; **Frog**: nearby frogs drop froglight when eating normal slimes
         - [ ] &lt;P4&gt; **Ghast**: reflects ghast fireballs

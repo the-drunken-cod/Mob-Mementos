@@ -11,7 +11,7 @@ public class ModStartupConfig {
         public final ModConfigSpec.BooleanValue ENABLED;
         public final ModConfigSpec.DoubleValue RADIUS;
         public final ModConfigSpec.IntValue DURABILITY;
-        public final ModConfigSpec.IntValue COOLDOWN_TICKS;
+        public final ModConfigSpec.IntValue CEILING_SEARCH_DISTANCE;
 
         BatTalisman(ModConfigSpec.Builder builder) {
             builder.push("bat_talisman")
@@ -23,20 +23,21 @@ public class ModStartupConfig {
                     .define("bat_talisman.enabled", true);
 
             RADIUS = builder
-                    .comment("The radius in blocks around the player in which bat spawns will be prevented.")
+                    .comment(
+                            "The radius in blocks around the player in which spawning bats will immediately fall asleep.")
                     .translation("config.mobtalismans.bat_talisman.radius")
                     .defineInRange("bat_talisman.radius", 72.0, 1.0, 128.0);
 
             DURABILITY = builder
                     .comment("The durability of the Bat Talisman.")
                     .translation("config.mobtalismans.bat_talisman.durability")
-                    .defineInRange("bat_talisman.durability", 2031, 0, Integer.MAX_VALUE);
+                    .defineInRange("bat_talisman.durability", 1024, 0, Integer.MAX_VALUE);
 
-            COOLDOWN_TICKS = builder
+            CEILING_SEARCH_DISTANCE = builder
                     .comment(
-                            "The cooldown in ticks (20 ticks = 1 second) before a player's Bat Talisman can trigger again.")
-                    .translation("config.mobtalismans.bat_talisman.cooldown_ticks")
-                    .defineInRange("bat_talisman.cooldown_ticks", 200, 0, Integer.MAX_VALUE);
+                            "The distance in blocks to search straight up from a spawning bat for a solid ceiling to teleport it to. If none is found within this distance, the bat will fall asleep naturally instead.")
+                    .translation("config.mobtalismans.bat_talisman.ceiling_search_distance")
+                    .defineInRange("bat_talisman.ceiling_search_distance", 64, 0, 320);
 
             builder.pop();
         }

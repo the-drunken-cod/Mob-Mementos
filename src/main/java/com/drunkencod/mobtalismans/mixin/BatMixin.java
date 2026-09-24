@@ -4,61 +4,69 @@ import com.drunkencod.mobtalismans.MobTalismans;
 import com.drunkencod.mobtalismans.advancement.ModCriteriaTriggers;
 import com.drunkencod.mobtalismans.config.ModStartupConfig;
 import com.drunkencod.mobtalismans.item.ModItems;
-import com.drunkencod.mobtalismans.sound.ModSoundEvents;
 
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net.minecraft.world.entity.ambient.Bat")
 public class BatMixin {
 
     @Unique
-    private static final String mobtalismans$COOLDOWN_NBT_KEY = "mobtalismans:bat_talisman_cooldown_until";
+    private static final String mobtalismans$PENDING_NBT_KEY = "mobtalismans:bat_talisman_pending";
 
-    private record Wearer(Player player, ItemStack stack, double distSq) {
-    }
+    @Unique
+    private static final String mobtalismans$ASLEEP_NBT_KEY = "mobtalismans:bat_talisman_asleep";
 
-    @Inject(method = "checkBatSpawnRules", at = @At("HEAD"), cancellable = true)
-    private static void mobtalismans$preventSpawningWithTalisman(EntityType<Bat> entityType,
-            LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource,
-            CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "customServerAiStep", at = @At("HEAD"), cancellable = true)
+    private void mobtalismans$forceSleepWithTalisman(CallbackInfo ci) {
         try {
+            Bat bat = (Bat) (Object) this;
+            var persistentData = bat.getPersistentData();
+
+            // already naturally settled on a ceiling while pending: stay resting forever,
+            // ignoring the vanilla wake-up/flight logic entirely
+            if (persistentData.getBoolean(mobtalismans$ASLEEP_NBT_KEY)) {
+                bat.setResting(true);
+                ci.cancel();
+                return;
+            }
+
+            // already triggered, just waiting for the vanilla AI to find a ceiling and
+            // rest naturally, so let the vanilla logic keep running this tick
+            if (persistentData.getBoolean(mobtalismans$PENDING_NBT_KEY))
+                return;
+
             if (!ModItems.BAT_TALISMAN.get().isEnabled())
+                return;
+
+            if (!(bat.level() instanceof ServerLevel serverLevel))
                 return;
 
             double radius = ModStartupConfig.BAT_TALISMAN.RADIUS.get();
             double radiusSq = radius * radius;
 
-            List<Wearer> wearers = new ArrayList<>();
+            Player closestWearer = null;
+            ItemStack closestStack = ItemStack.EMPTY;
+            double closestDistSq = Double.MAX_VALUE;
 
-            // 1. get all players within ModStartupConfig.BAT_TALISMAN.RADIUS
-            for (Player player : levelAccessor.players()) {
-                double distSq = player.distanceToSqr(blockPos.getX() + 0.5, blockPos.getY() + 0.5,
-                        blockPos.getZ() + 0.5);
+            for (Player player : serverLevel.players()) {
+                double distSq = player.distanceToSqr(bat.getX(), bat.getY(), bat.getZ());
                 if (distSq > radiusSq)
                     continue;
 
-                // 2. if any player is wearing a talisman, prevent spawn
                 var capability = AccessoriesCapability.get(player);
                 if (capability == null)
                     continue;
@@ -68,76 +76,90 @@ public class BatMixin {
                     if (stack.getMaxDamage() > 0 && stack.getDamageValue() >= stack.getMaxDamage())
                         continue;
 
-                    wearers.add(new Wearer(player, stack, distSq));
+                    if (distSq < closestDistSq) {
+                        closestDistSq = distSq;
+                        closestWearer = player;
+                        closestStack = stack;
+                    }
                     break;
                 }
             }
 
-            if (wearers.isEmpty())
+            if (closestWearer == null)
                 return;
 
-            // always prevent the spawn while any nearby player wears a functional talisman,
-            // regardless of that player's trigger cooldown
-            cir.setReturnValue(false);
+            bat.setSilent(true);
 
-            int cooldownTicks = ModStartupConfig.BAT_TALISMAN.COOLDOWN_TICKS.get();
+            if (closestWearer instanceof ServerPlayer serverPlayer)
+                ModCriteriaTriggers.TALISMAN_TRIGGERED.trigger(serverPlayer, closestStack.copy(), closestStack.copy());
 
-            Wearer closestTriggered = null;
-            double closestDistSq = Double.MAX_VALUE;
+            if (closestStack.isDamageableItem())
+                closestStack.hurtAndBreak(1, serverLevel, null, item -> {
+                    // noop
+                });
 
-            // 3. apply 1 damage to the talisman of every nearby player whose cooldown has
-            // elapsed
-            for (Wearer wearer : wearers) {
-                var playerLevel = wearer.player().level();
-                long currentTick = playerLevel.getGameTime();
-                var persistentData = wearer.player().getPersistentData();
-                long cooldownUntil = persistentData.getLong(mobtalismans$COOLDOWN_NBT_KEY);
-                if (currentTick < cooldownUntil)
-                    continue;
+            int searchDistance = ModStartupConfig.BAT_TALISMAN.CEILING_SEARCH_DISTANCE.get();
+            BlockPos ceilingSpot = searchDistance > 0
+                    ? mobtalismans$findCeilingSpot(serverLevel, bat.blockPosition(), searchDistance)
+                    : null;
 
-                persistentData.putLong(mobtalismans$COOLDOWN_NBT_KEY, currentTick + cooldownTicks);
+            if (ceilingSpot != null) {
+                // a solid ceiling was found nearby: teleport straight there and sleep for good
+                bat.teleportTo(ceilingSpot.getX() + 0.5, ceilingSpot.getY(), ceilingSpot.getZ() + 0.5);
+                bat.setResting(true);
+                persistentData.putBoolean(mobtalismans$ASLEEP_NBT_KEY, true);
+                ci.cancel();
 
-                if (!playerLevel.isClientSide() && wearer.player() instanceof ServerPlayer serverPlayer)
-                    ModCriteriaTriggers.TALISMAN_TRIGGERED.trigger(serverPlayer, wearer.stack().copy(),
-                            wearer.stack().copy());
+                MobTalismans.LOGGER.debug("[Bat Talisman]: Teleported Bat to ceiling near player {}",
+                        closestWearer.getName().getString());
+            } else {
+                // no ceiling found within range: fall back to waiting for the vanilla AI to
+                // find one and rest naturally
+                persistentData.putBoolean(mobtalismans$PENDING_NBT_KEY, true);
 
-                if (wearer.stack().isDamageableItem() && playerLevel instanceof ServerLevel serverLevel)
-                    wearer.stack().hurtAndBreak(1, serverLevel, null, item -> {
-                        // noop
-                    });
-
-                if (wearer.distSq() < closestDistSq) {
-                    closestDistSq = wearer.distSq();
-                    closestTriggered = wearer;
-                }
-            }
-
-            // every wearer is still on cooldown, nothing left to do
-            if (closestTriggered == null)
-                return;
-
-            MobTalismans.LOGGER.debug("[Bat Talisman]: Preventing Bat spawn near player {}",
-                    closestTriggered.player().getName().getString());
-
-            // play pitched down bat takeoff sound closer to the (closest triggered) player,
-            // along the vector towards the bat spawn location, so it's actually audible
-            // instead of playing far away
-            if (levelAccessor instanceof ServerLevel level) {
-                float pitchRand = randomSource.nextFloat() / 10;
-
-                Vec3 playerPos = closestTriggered.player().position();
-                Vec3 toSpawn = Vec3.atCenterOf(blockPos).subtract(playerPos);
-                double soundDist = Math.min(5.0, toSpawn.length());
-                Vec3 soundPos = toSpawn.lengthSqr() > 1.0E-4
-                        ? playerPos.add(toSpawn.normalize().scale(soundDist))
-                        : playerPos;
-
-                level.playLocalSound(soundPos.x, soundPos.y, soundPos.z, ModSoundEvents.BAT_TALISMAN_TRIGGERED.get(),
-                        SoundSource.NEUTRAL, 1.0F, 0.65F + pitchRand, false);
+                MobTalismans.LOGGER.debug(
+                        "[Bat Talisman]: No ceiling found near player {}, Bat will fall asleep once it finds a perch",
+                        closestWearer.getName().getString());
             }
         } catch (Exception e) {
-            MobTalismans.LOGGER.error("[Bat Talisman] Error while preventing Bat spawn", e);
-            cir.setReturnValue(true);
+            MobTalismans.LOGGER.error("[Bat Talisman] Error while triggering Bat sleep", e);
+        }
+    }
+
+    @Nullable
+    @Unique
+    private static BlockPos mobtalismans$findCeilingSpot(ServerLevel level, BlockPos start, int maxDistance) {
+        BlockPos.MutableBlockPos pos = start.mutable();
+        int maxY = Math.min(start.getY() + maxDistance, level.getMaxBuildHeight() - 1);
+
+        for (int y = start.getY(); y <= maxY; y++) {
+            pos.setY(y);
+            if (!level.isEmptyBlock(pos))
+                continue;
+
+            BlockPos above = pos.above();
+            if (level.getBlockState(above).isRedstoneConductor(level, above))
+                return pos.immutable();
+        }
+
+        return null;
+    }
+
+    @Inject(method = "customServerAiStep", at = @At("TAIL"))
+    private void mobtalismans$lockSleepOnceRested(CallbackInfo ci) {
+        try {
+            Bat bat = (Bat) (Object) this;
+            var persistentData = bat.getPersistentData();
+
+            if (persistentData.getBoolean(mobtalismans$ASLEEP_NBT_KEY))
+                return;
+
+            // once the bat has naturally found a ceiling and started resting on its own,
+            // lock it into permanent sleep from now on
+            if (persistentData.getBoolean(mobtalismans$PENDING_NBT_KEY) && bat.isResting())
+                persistentData.putBoolean(mobtalismans$ASLEEP_NBT_KEY, true);
+        } catch (Exception e) {
+            MobTalismans.LOGGER.error("[Bat Talisman] Error while locking Bat to sleep", e);
         }
     }
 }
